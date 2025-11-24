@@ -62,7 +62,7 @@ Add the role ARN as an environment variable in your Gitpod workspace:
 **Via Gitpod Dashboard:**
 1. Go to [gitpod.io/variables](https://gitpod.io/variables)
 2. Add new variable:
-   - Name: `AWS_ROLE_ARN`
+   - Name: `ONAS3SYNCDEMO_ROLE_ARN`
    - Value: `arn:aws:iam::YOUR_ACCOUNT_ID:role/YOUR_ROLE_NAME`
    - Scope: Select your repository
 
@@ -72,7 +72,7 @@ Uncomment and update in `.devcontainer/devcontainer.json`:
 
 ```json
 "containerEnv": {
-    "AWS_ROLE_ARN": "arn:aws:iam::841512165447:role/GitpodS3ReadRole"
+    "ONAS3SYNCDEMO_ROLE_ARN": "arn:aws:iam::841512165447:role/GitpodS3ReadRole"
 }
 ```
 
@@ -82,8 +82,9 @@ The role assumption requires initial AWS credentials. Set these in Gitpod:
 
 1. Go to [gitpod.io/variables](https://gitpod.io/variables)
 2. Add these variables:
-   - `AWS_ACCESS_KEY_ID`: Your IAM user access key
-   - `AWS_SECRET_ACCESS_KEY`: Your IAM user secret key
+   - `ONAS3SYNCDEMO_ACCESS_KEY_ID`: Your IAM user access key
+   - `ONAS3SYNCDEMO_SECRET_ACCESS_KEY`: Your IAM user secret key
+   - `ONAS3SYNCDEMO_SESSION_TOKEN`: Your session token (if using temporary credentials)
    - Scope: Select your repository
 
 The IAM user only needs `sts:AssumeRole` permission:
@@ -111,17 +112,17 @@ Use temporary session credentials directly.
 
 Add these environment variables in [gitpod.io/variables](https://gitpod.io/variables):
 
-- `AWS_ACCESS_KEY_ID`
-- `AWS_SECRET_ACCESS_KEY`
-- `AWS_SESSION_TOKEN` (if using temporary credentials)
+- `ONAS3SYNCDEMO_ACCESS_KEY_ID`
+- `ONAS3SYNCDEMO_SECRET_ACCESS_KEY`
+- `ONAS3SYNCDEMO_SESSION_TOKEN` (if using temporary credentials)
 
 Or uncomment in `.devcontainer/devcontainer.json`:
 
 ```json
 "containerEnv": {
-    "AWS_ACCESS_KEY_ID": "ASIA...",
-    "AWS_SECRET_ACCESS_KEY": "...",
-    "AWS_SESSION_TOKEN": "..."
+    "ONAS3SYNCDEMO_ACCESS_KEY_ID": "ASIA...",
+    "ONAS3SYNCDEMO_SECRET_ACCESS_KEY": "...",
+    "ONAS3SYNCDEMO_SESSION_TOKEN": "..."
 }
 ```
 
@@ -132,10 +133,11 @@ Or uncomment in `.devcontainer/devcontainer.json`:
 ## How It Works
 
 1. On environment startup, `.devcontainer/startup-s3-sync.sh` runs automatically
-2. If `AWS_ROLE_ARN` is set, it assumes the role to get temporary credentials
-3. Otherwise, it uses the provided AWS credentials
-4. Syncs all accessible S3 buckets to `s3_extracted_data/`
-5. Only downloads new or changed files (incremental sync)
+2. Maps `ONAS3SYNCDEMO_*` environment variables to standard AWS credentials
+3. If `ONAS3SYNCDEMO_ROLE_ARN` is set, it assumes the role to get temporary credentials
+4. Otherwise, it uses the provided AWS credentials
+5. Syncs all accessible S3 buckets to `s3_extracted_data/`
+6. Only downloads new or changed files (incremental sync)
 
 ## Manual Sync
 

@@ -18,10 +18,10 @@ Automatic S3 data synchronization with IAM role assumption for Gitpod environmen
    - Copy the role ARN
 
 2. **Configure Gitpod environment variables** at [gitpod.io/variables](https://gitpod.io/variables):
-   - `AWS_ROLE_ARN`: Your IAM role ARN
-   - `AWS_ACCESS_KEY_ID`: Base credentials
-   - `AWS_SECRET_ACCESS_KEY`: Base credentials
-   - `AWS_SESSION_TOKEN`: Session token (if using temporary credentials)
+   - `ONAS3SYNCDEMO_ROLE_ARN`: Your IAM role ARN
+   - `ONAS3SYNCDEMO_ACCESS_KEY_ID`: Base credentials
+   - `ONAS3SYNCDEMO_SECRET_ACCESS_KEY`: Base credentials
+   - `ONAS3SYNCDEMO_SESSION_TOKEN`: Session token (if using temporary credentials)
 
 3. **Start environment** - S3 data syncs automatically to `s3_extracted_data/`
 
@@ -54,9 +54,10 @@ Edit `.devcontainer/devcontainer.json` to customize:
 
 ## Current Configuration
 
-- **Role ARN**: `arn:aws:iam::841512165447:role/S3AccessDemo`
+- **Role ARN Variable**: `ONAS3SYNCDEMO_ROLE_ARN` (set to `arn:aws:iam::841512165447:role/S3AccessDemo`)
 - **Output Directory**: `s3_extracted_data/`
 - **Sync Method**: Incremental (aws s3 sync)
+- **Credential Variables**: `ONAS3SYNCDEMO_*` prefix for project-specific isolation
 
 ## Security
 

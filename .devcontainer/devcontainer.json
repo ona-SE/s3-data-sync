@@ -21,10 +21,10 @@
 	// Environment variables for AWS access
 	// Configure these in Gitpod: https://gitpod.io/variables
 	// Required variables:
-	//   - AWS_ROLE_ARN: arn:aws:iam::841512165447:role/S3AccessDemo
-	//   - AWS_ACCESS_KEY_ID: (your access key)
-	//   - AWS_SECRET_ACCESS_KEY: (your secret key)
-	//   - AWS_SESSION_TOKEN: (your session token, if using temporary credentials)
+	//   - ONAS3SYNCDEMO_ROLE_ARN: arn:aws:iam::841512165447:role/S3AccessDemo
+	//   - ONAS3SYNCDEMO_ACCESS_KEY_ID: (your access key)
+	//   - ONAS3SYNCDEMO_SECRET_ACCESS_KEY: (your secret key)
+	//   - ONAS3SYNCDEMO_SESSION_TOKEN: (your session token, if using temporary credentials)
 	
 	// Option 2: Use direct credentials (less secure)
 	// "containerEnv": {
