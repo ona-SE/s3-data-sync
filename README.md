@@ -38,6 +38,49 @@ Or use the standalone extraction script:
 ./extract_s3_data.sh
 ```
 
+## AWS CLI Commands
+
+Explore S3 buckets directly using AWS CLI:
+
+```bash
+# List all buckets
+aws s3 ls
+
+# List contents of a specific bucket
+aws s3 ls s3://bucket-name/
+
+# List contents recursively (all files)
+aws s3 ls s3://bucket-name/ --recursive
+
+# List with human-readable sizes
+aws s3 ls s3://bucket-name/ --recursive --human-readable --summarize
+
+# Download a specific file
+aws s3 cp s3://bucket-name/path/to/file.txt ./
+
+# View file contents without downloading
+aws s3 cp s3://bucket-name/path/to/file.txt -
+
+# Search for files by pattern
+aws s3 ls s3://bucket-name/ --recursive | grep "pattern"
+
+# Get bucket size and file count
+aws s3 ls s3://bucket-name/ --recursive --summarize | tail -2
+```
+
+**Example workflow:**
+
+```bash
+# 1. List all buckets
+aws s3 ls
+
+# 2. Pick a bucket and explore its contents
+aws s3 ls s3://blog-post-test-fernando/ --recursive
+
+# 3. View a file
+aws s3 cp s3://blog-post-test-fernando/my-shared-dir/testing-file.txt -
+```
+
 ## Configuration
 
 Edit `.devcontainer/devcontainer.json` to customize:
