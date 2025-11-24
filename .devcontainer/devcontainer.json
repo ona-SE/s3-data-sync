@@ -1,0 +1,38 @@
+// The Dev Container format allows you to configure your environment. At the heart of it
+// is a Docker image or Dockerfile which controls the tools available in your environment.
+//
+// See https://aka.ms/devcontainer.json for more information.
+{
+	"name": "Ona",
+	// Use "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+	// instead of the build to use a pre-built image.
+	"build": {
+        "context": ".",
+        "dockerfile": "Dockerfile"
+    },
+	// Features add additional features to your environment. See https://containers.dev/features
+	// Beware: features are not supported on all platforms and may have unintended side-effects.
+	// "features": {
+    //   "ghcr.io/devcontainers/features/docker-in-docker": {
+    //     "moby": false
+    //   }
+    // },
+	
+	// Environment variables for AWS access
+	// Configure these in Gitpod: https://gitpod.io/variables
+	// Required variables:
+	//   - AWS_ROLE_ARN: arn:aws:iam::841512165447:role/S3AccessDemo
+	//   - AWS_ACCESS_KEY_ID: (your access key)
+	//   - AWS_SECRET_ACCESS_KEY: (your secret key)
+	//   - AWS_SESSION_TOKEN: (your session token, if using temporary credentials)
+	
+	// Option 2: Use direct credentials (less secure)
+	// "containerEnv": {
+	// 	"AWS_ACCESS_KEY_ID": "your-access-key",
+	// 	"AWS_SECRET_ACCESS_KEY": "your-secret-key",
+	// 	"AWS_SESSION_TOKEN": "your-session-token"
+	// },
+	
+	// Run S3 sync script on container start
+	"postStartCommand": ".devcontainer/startup-s3-sync.sh"
+}

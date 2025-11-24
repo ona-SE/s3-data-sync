@@ -1,0 +1,21 @@
+# S3 extracted data
+s3_extracted_data/
+
+# AWS CLI installation files
+aws/
+awscliv2.zip
+
+# Environment variables (use Gitpod variables instead)
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
