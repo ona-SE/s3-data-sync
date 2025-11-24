@@ -84,7 +84,6 @@ The role assumption requires initial AWS credentials. Set these in Gitpod:
 2. Add these variables:
    - `ONAS3SYNCDEMO_ACCESS_KEY_ID`: Your IAM user access key
    - `ONAS3SYNCDEMO_SECRET_ACCESS_KEY`: Your IAM user secret key
-   - `ONAS3SYNCDEMO_SESSION_TOKEN`: Your session token (if using temporary credentials)
    - Scope: Select your repository
 
 The IAM user only needs `sts:AssumeRole` permission:
@@ -104,9 +103,9 @@ The IAM user only needs `sts:AssumeRole` permission:
 
 ---
 
-### Option 2: Direct Credentials (Less Secure)
+### Option 2: Direct Credentials (Without Role Assumption)
 
-Use temporary session credentials directly.
+Use IAM user credentials directly without role assumption.
 
 #### Configure in Gitpod
 
@@ -114,19 +113,17 @@ Add these environment variables in [gitpod.io/variables](https://gitpod.io/varia
 
 - `ONAS3SYNCDEMO_ACCESS_KEY_ID`
 - `ONAS3SYNCDEMO_SECRET_ACCESS_KEY`
-- `ONAS3SYNCDEMO_SESSION_TOKEN` (if using temporary credentials)
 
 Or uncomment in `.devcontainer/devcontainer.json`:
 
 ```json
 "containerEnv": {
-    "ONAS3SYNCDEMO_ACCESS_KEY_ID": "ASIA...",
-    "ONAS3SYNCDEMO_SECRET_ACCESS_KEY": "...",
-    "ONAS3SYNCDEMO_SESSION_TOKEN": "..."
+    "ONAS3SYNCDEMO_ACCESS_KEY_ID": "AKIA...",
+    "ONAS3SYNCDEMO_SECRET_ACCESS_KEY": "..."
 }
 ```
 
-⚠️ **Warning:** Session tokens expire. You'll need to update them regularly.
+⚠️ **Note:** The IAM user must have S3 permissions directly attached.
 
 ---
 
@@ -152,8 +149,9 @@ To manually trigger a sync:
 ### "AWS credentials not configured or invalid"
 
 - Verify environment variables are set in Gitpod
+- Check IAM user credentials are valid
+- If using role assumption, ensure base credentials have `sts:AssumeRole` permission
 - Check IAM role trust policy allows your account
-- Ensure base credentials have `sts:AssumeRole` permission
 
 ### "Failed to assume role"
 

@@ -22,9 +22,8 @@
 	// Configure these in Gitpod: https://gitpod.io/variables
 	// Required variables:
 	//   - ONAS3SYNCDEMO_ROLE_ARN: arn:aws:iam::841512165447:role/S3AccessDemo
-	//   - ONAS3SYNCDEMO_ACCESS_KEY_ID: (your access key)
-	//   - ONAS3SYNCDEMO_SECRET_ACCESS_KEY: (your secret key)
-	//   - ONAS3SYNCDEMO_SESSION_TOKEN: (your session token, if using temporary credentials)
+	//   - ONAS3SYNCDEMO_ACCESS_KEY_ID: (your IAM user access key)
+	//   - ONAS3SYNCDEMO_SECRET_ACCESS_KEY: (your IAM user secret key)
 	
 	// Option 2: Use direct credentials (less secure)
 	// "containerEnv": {

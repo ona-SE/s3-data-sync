@@ -12,7 +12,6 @@ SESSION_NAME="gitpod-s3-sync-$(date +%s)"
 # Map project-specific env vars to standard AWS env vars
 export AWS_ACCESS_KEY_ID="${ONAS3SYNCDEMO_ACCESS_KEY_ID:-$AWS_ACCESS_KEY_ID}"
 export AWS_SECRET_ACCESS_KEY="${ONAS3SYNCDEMO_SECRET_ACCESS_KEY:-$AWS_SECRET_ACCESS_KEY}"
-export AWS_SESSION_TOKEN="${ONAS3SYNCDEMO_SESSION_TOKEN:-$AWS_SESSION_TOKEN}"
 
 # Check if AWS CLI is installed
 if ! command -v aws &> /dev/null; then
