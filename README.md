@@ -32,12 +32,6 @@ Run the sync script manually:
 ./.devcontainer/startup-s3-sync.sh
 ```
 
-Or use the standalone extraction script:
-
-```bash
-./extract_s3_data.sh
-```
-
 ## AWS CLI Commands
 
 Explore S3 buckets directly using AWS CLI:
@@ -91,8 +85,7 @@ Edit `.devcontainer/devcontainer.json` to customize:
 ## Documentation
 
 - [AWS_SETUP.md](AWS_SETUP.md) - Complete IAM role setup guide
-- [.devcontainer/startup-s3-sync.sh](.devcontainer/startup-s3-sync.sh) - Startup script
-- [extract_s3_data.sh](extract_s3_data.sh) - Manual extraction script
+- [.devcontainer/startup-s3-sync.sh](.devcontainer/startup-s3-sync.sh) - Sync script
 
 ## Current Configuration
 
