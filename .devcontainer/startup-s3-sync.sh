@@ -5,7 +5,7 @@ set -e
 echo "🔄 Starting S3 data sync..."
 
 # Configuration
-OUTPUT_DIR="/workspaces/empty-base-repo/s3_extracted_data"
+OUTPUT_DIR="/workspaces/s3-data-sync/s3_extracted_data"
 ROLE_ARN="${ONAS3SYNCDEMO_ROLE_ARN:-}"
 SESSION_NAME="gitpod-s3-sync-$(date +%s)"
 
