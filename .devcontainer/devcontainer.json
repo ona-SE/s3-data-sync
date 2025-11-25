@@ -33,5 +33,8 @@
 	// },
 	
 	// Run S3 sync script on container start
-	"postStartCommand": ".devcontainer/startup-s3-sync.sh"
+	"postStartCommand": ".devcontainer/startup-s3-sync.sh",
+	
+	// Setup AWS credentials for all shell sessions
+	"postCreateCommand": "echo 'source /workspaces/s3-data-sync/.devcontainer/setup-aws-env.sh' >> ~/.bashrc"
 }
