@@ -12,7 +12,7 @@ Automatic S3 data synchronization with IAM role assumption for Gitpod environmen
 
 ## Quick Start
 
-1. **Set up IAM role** (see [AWS_SETUP.md](AWS_SETUP.md) for detailed instructions)
+1. **Set up IAM role**
    - Create role with S3 full access
    - Configure trust policy
    - Copy the role ARN
@@ -84,7 +84,6 @@ Edit `.devcontainer/devcontainer.json` to customize:
 
 ## Documentation
 
-- [AWS_SETUP.md](AWS_SETUP.md) - Complete IAM role setup guide
 - [.devcontainer/startup-s3-sync.sh](.devcontainer/startup-s3-sync.sh) - Sync script
 
 ## Current Configuration
